@@ -5,5 +5,7 @@ dependencies:
   - python>=3.9
   - pip
   - numpy=1.23
+  - pandas
+  - matplotlib
   - pip:
     - git+https://github.com/khl02007/cellmat.git
