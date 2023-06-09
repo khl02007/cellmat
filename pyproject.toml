@@ -1,0 +1,30 @@
+[project]
+name = "cellmat"
+version = "0.0.1"
+authors = [
+  { name="Kyu Hyun Lee", email="kyuhyun9056@gmail.com" }
+]
+description = "Match cells across recordings"
+readme = "README.md"
+requires-python = ">=3.8,<4.0"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib"
+]
+
+[build-system]
+requires = ["setuptools>=62.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["cellmat*"]
+namespaces = False
+
+[project.urls]
+repository = "https://github.com/khl02007/cellmat/"
