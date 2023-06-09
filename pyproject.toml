@@ -24,7 +24,6 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["cellmat"]
-namespaces = False
 
 [project.urls]
 "Homepage" = "https://github.com/khl02007/cellmat/"
