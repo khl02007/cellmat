@@ -2,6 +2,8 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.decomposition import IncrementalPCA
 import sklearn.metrics.pairwise
 from scipy.stats import pearsonr
+import numpy as np
+import spikeinterface.full as si
 
 def _compute_contamination(pcs_target_unit, pcs_other_unit, n_neighbors: int):
     # get lengths
