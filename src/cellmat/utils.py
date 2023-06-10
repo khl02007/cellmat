@@ -4,6 +4,8 @@ import numpy as np
 import json
 import os
 
+import spyglass.spikesorting as sgs
+
 def get_recording(nwb_file_name, shank_id):
     recording_path = (sgs.SpikeSortingRecording & {"nwb_file_name":nwb_file_name,
                                                    "sort_group_id":shank_id}).fetch("recording_path")[0]
@@ -91,3 +93,28 @@ def plot_circles(ax, recording_list, start_frame, end_frame, edgecolor):
     plt.axis('off')
     return values
     # plt.show()
+    
+    
+def count_unique_ones(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    row_counts = [0] * rows
+    col_counts = [0] * cols
+
+    # Count the number of 1s in each row and column
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j] == 1:
+                row_counts[i] += 1
+                col_counts[j] += 1
+
+    unique_ones = 0
+
+    # Count the number of 1s that are the only 1 in both row and column
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j] == 1 and row_counts[i] == 1 and col_counts[j] == 1:
+                unique_ones += 1
+
+    return unique_ones
