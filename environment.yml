@@ -7,5 +7,9 @@ dependencies:
   - numpy=1.23
   - pandas
   - matplotlib
+  - spikeinterface>=0.98.0.dev0
+  - spyglass>=0.4.0
   - pip:
+    - git+https://github.com/SpikeInterface/spikeinterface.git
+    - git+https://github.com/LorenFrankLab/spyglass.git
     - git+https://github.com/khl02007/cellmat.git

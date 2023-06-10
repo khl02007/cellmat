@@ -14,7 +14,9 @@ classifiers = [
 dependencies = [
     "numpy",
     "pandas",
-    "matplotlib"
+    "matplotlib",
+    "spyglass >= 0.3.4",
+    "spikeinterface >= 0.97"
 ]
 
 [build-system]
