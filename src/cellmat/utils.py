@@ -96,49 +96,23 @@ def plot_circles(ax, recording_list, start_frame, end_frame, edgecolor):
     
     
 def count_unique_ones(matrix):
-    rows = len(matrix)
-    cols = len(matrix[0])
 
-    row_counts = [0] * rows
-    col_counts = [0] * cols
-
-    # Count the number of 1s in each row and column
-    for i in range(rows):
-        for j in range(cols):
-            if matrix[i][j] == 1:
-                row_counts[i] += 1
-                col_counts[j] += 1
-
-    unique_ones = 0
-
-    # Count the number of 1s that are the only 1 in both row and column
-    for i in range(rows):
-        for j in range(cols):
-            if matrix[i][j] == 1 and row_counts[i] == 1 and col_counts[j] == 1:
-                unique_ones += 1
-
+    ones = np.where(matrix==1, 1,0)
+    uniques_ones = 0
+    
+    for row in ones:
+        if np.sum(row)==1:
+            unique_ones += 1
+            
     return unique_ones
 
 def find_unique_ones(matrix):
-    rows = len(matrix)
-    cols = len(matrix[0])
 
-    row_counts = [0] * rows
-    col_counts = [0] * cols
-
-    # Count the number of 1s in each row and column
-    for i in range(rows):
-        for j in range(cols):
-            if matrix[i][j] == 1:
-                row_counts[i] += 1
-                col_counts[j] += 1
-
+    ones = np.where(matrix==1, 1,0)
     unique_ones = []
     
-    # Find the 1s that are the only 1 in both row and column
-    for i in range(rows):
-        for j in range(cols):
-            if matrix[i][j] == 1 and row_counts[i] == 1 and col_counts[j] == 1:
-                unique_ones.append((i, j))
+    for row_id, row in enumerate(ones):
+        if np.sum(row)==1:
+            unique_ones.append((row_id, np.where(row==1)[0][0]))
 
     return unique_ones
